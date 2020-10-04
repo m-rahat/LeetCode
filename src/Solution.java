@@ -1,25 +1,25 @@
 import java.util.*;
 
-class ListNode {
-	int val;
-	ListNode next;
-
-	ListNode() {
-	}
-
-	ListNode(int val) {
-		this.val = val;
-	}
-
-	ListNode(int val, ListNode next) {
-		this.val = val;
-		this.next = next;
-	}
-	
-	public String toString(){
-		return Integer.toString(val);
-	}//toString
-}
+//class ListNode {
+//	int val;
+//	ListNode next;
+//
+//	ListNode() {
+//	}
+//
+//	ListNode(int val) {
+//		this.val = val;
+//	}
+//
+//	ListNode(int val, ListNode next) {
+//		this.val = val;
+//		this.next = next;
+//	}
+//	
+//	public String toString(){
+//		return Integer.toString(val);
+//	}//toString
+//}
 
 public class Solution {
 	public static ListNode reverseBetween(ListNode head, int m, int n) {
