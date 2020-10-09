@@ -4,19 +4,6 @@ public class Remove_Duplicate_Letters {
 
 	public static void main(String[] args) {
 
-		/*
-		 * c d a d a b c c 0 1 2 3 4 5 6 7
-		 * 
-		 * l e e t c o d e leet
-		 */
-
-//		String in1 = "";	//with currentIndex
-//		String in2 = "";	//with greaterIndex
-
-		// if > 0 then go with in2
-		// if < 0 then go with in1
-		// if = 0 then go with in1
-//		System.out.println(in1.compareTo(in2));
 
 		removeDuplicateLetters("leetcode");
 
@@ -24,68 +11,33 @@ public class Remove_Duplicate_Letters {
 
 	public static String removeDuplicateLetters(String s) {
 
-		String returnString = "";
-		String in1 = "";
-		String in2 = "";
-
-		char[] input1 = new char[s.length()];
-		char[] input2 = new char[s.length()];
-		Map<Character, Integer> map1 = new HashMap<>();
-		Map<Character, Integer> map2 = new HashMap<>();
-		char[] charArray = s.toCharArray();
-
-		for (int i = 0; i < charArray.length; i++) {
-
-			if (map1.containsKey(charArray[i])) {
-				int n = map1.get(charArray[i]);
-				if (i < n) {
-					input1[i] = charArray[i];
-					map1.put(charArray[i], i);
-				} // if
-			} // if
-			else {
-				input1[i] = charArray[i];
-				map1.put(charArray[i], i);
-			} // else
-			
-			// now part 2
-			if (map2.containsKey(charArray[i])) {
-				int n = map2.get(charArray[i]);
-				if (i > n) {
-					input2[i] = charArray[i];
-					input2[n] = Character.MIN_VALUE;
-					map2.put(charArray[i], i);
-				} // if
-			} // if
-			else {
-				input2[i] = charArray[i];
-				map2.put(charArray[i], i);
-			} // else
+		if (s== null || s.length() == 0) return "";
 		
-			in1 = new String(input1);
-			in2 = new String(input2);
-			
-			System.out.println(in1 + " in1");
-			System.out.println(in2 + " in2");
-			
-			if(in1.compareTo(in2) > 0){
-				input1 = input2;
+		HashMap<Character, Integer> map = new HashMap<>();
+		//keep a count of how many times the letter appear in a map
+		for(int i = 0; i < s.length(); i++) {
+			if (! map.containsKey(s.charAt(i))) {
+				map.put(s.charAt(i), 1);
 			}//if
-			else if (in1.compareTo(in2) == 0) {
-				input2 = input1;
-			}//else if
 			else {
-				input2 = input1;
+				map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
 			}//else
-			
-			
-		} // for
+		}//for
 		
-		System.out.println(Arrays.toString(input1));
-		System.out.println(Arrays.toString(input2));
+		int pos = 0;
+		for (int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) < s.charAt(pos)) {
+				pos = i;
+			}//if
+			//decrementing the use of one character from the map
+			map.put(s.charAt(i), map.get(s.charAt(i)) - 1);
+			if (map.get(s.charAt(i)) == 0) {
+				return s.charAt(pos) + removeDuplicateLetters(s.substring(pos + 1).replaceAll(s.charAt(pos) + "", ""));
+			}//if
+		}//for
 		
 		
-		return returnString;
+		return s;
 	}// removeDuplicateLetters
 
 }// RemoveDuplicateLetters
