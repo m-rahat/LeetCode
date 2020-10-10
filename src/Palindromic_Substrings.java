@@ -4,7 +4,7 @@ public class Palindromic_Substrings {
 
 	public static void main(String[] args) {
 
-		String s = "aaa";
+		String s = "a";
 
 //		System.out.println(isPalindrome(s));
 		System.out.println(countSubstrings(s));
@@ -38,7 +38,6 @@ public class Palindromic_Substrings {
 
 		} // for i
 
-		
 //		System.out.println("*******************");
 		int count = 0;
 
