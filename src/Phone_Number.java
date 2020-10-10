@@ -13,7 +13,8 @@ public class Phone_Number {
 	
 	public static boolean validNumber(String s) {
 		
-		boolean result = Pattern.matches("[(][1-9]{3}[)][-][0-9]{3}[-][0-9]{4}", s);
+//		boolean result = Pattern.matches("[(][1-9]{3}[)][-][0-9]{3}[-][0-9]{4}", s);
+		boolean result = s.matches("\\(\\d{3}\\)-\\d{3}-\\d{4}");
 		
 		return result;
 	}//boolean
