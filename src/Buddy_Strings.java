@@ -4,11 +4,51 @@ public class Buddy_Strings {
 
 	public static void main(String[] args) {
 
-		System.out.println(buddyStrings("aa", "aa"));
-
+		System.out.println(buddyStrings("abcd", "badc"));
+		
 	}// main
-
+	
 	public static boolean buddyStrings(String A, String B) {
+		
+		if (A.length() != B.length()) return false;
+		
+		
+		if (A.equals(B)) {
+			Set set = new HashSet();
+			for (int i = 0; i < A.length(); i++) {
+				if (set.contains(A.charAt(i)))
+					return true;
+				else
+					set.add(A.charAt(i));
+			}
+			return false;
+		}
+		
+		int charA = 0;
+		int charB = 0;
+		int count = 0;
+		Set<Character> set = new HashSet<>();
+		for (int i = 0; i < A.length(); i++) {
+			if (A.charAt(i) == B.charAt(i)) {
+				set.add(A.charAt(i));
+			}//if
+			else {
+				count++;
+				charA += A.charAt(i);
+				charB += B.charAt(i);
+			}//else
+		}//for
+
+		System.out.println(charA + " charA");
+		System.out.println(charB + " charB");
+		
+		if (charA == charB && count == 2) return true;
+		
+		return false;
+		
+	}//buddyStrings
+
+	public static boolean buddyStringsV2(String A, String B) {
 		if (A.length() != B.length())
 			return false;
 
