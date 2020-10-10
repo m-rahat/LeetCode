@@ -7,9 +7,14 @@ public class License_Key_Formatting {
 		/*
 		 * "2-4A0r7-4k" K = 3
 		 * "24-A0R-74K"
+		 * 
+		 * "5F3Z-2e-9-w" K = 4
+		 * "5F3Z-2E9W"
 		 */
-		String S = "2-5G-3J";
-		int K = 2;
+		
+		
+		String S = "---";
+		int K = 3;
 		
 		System.out.println(licenseKeyFormatting(S, K));
 		
@@ -18,16 +23,13 @@ public class License_Key_Formatting {
 	public static String licenseKeyFormatting(String S, int K) {
 		
 		S = S.toUpperCase();
-		int minGroup = 1;
-		for (int i = 0; i < S.length(); i++) {
-			if (S.charAt(i) == '-') {
-				minGroup++;
-			}
-		}//for
 		
 		S = S.replaceAll("-", "");
 		String replacement = "";
 		
+		if (S.length() == 0) return "";
+		
+		int minGroup = (int) Math.ceil(S.length()/(double)K);
 		System.out.println(minGroup);
 	
 		String regex = "([A-Z0-9]{1," + K + "})";
@@ -36,7 +38,7 @@ public class License_Key_Formatting {
 		}//for
 		System.out.println(regex);
 		
-		for (int i = 1; i <= minGroup; i++) {
+		for (int i = 1; i < minGroup + 1; i++) {
 			replacement += "$"+i + "-";
 		}//for
 		
