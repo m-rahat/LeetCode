@@ -4,13 +4,34 @@ public class Container_With_Most_Water {
 
 	public static void main(String [] args) {
 		
-//		int[] height = new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7};
-		int[] height = new int[] {4, 3, 2, 1, 4};
+		int[] height = new int[] {1, 8, 6, 2, 5, 4, 8, 3, 7};
+//		int[] height = new int[] {4, 3, 2, 1, 4};
 		System.out.println(maxArea(height));
 		
 	}//main
 	
     public static int maxArea(int[] height) {
+    	
+    	int result = 0;
+    	int left = 0;
+    	int right = height.length - 1;
+    	
+    	while (left < right) {
+    		int total = Math.min(height[left], height[right]) * (right - left);
+    		result = Math.max(result, total);
+    		
+    		if (height[left] < height[right]) {
+    			left++;
+    		}//if
+    		else {
+    			right--;
+    		}//else
+    	}//while
+    	
+    	return result;
+    	}//maxArea
+	
+    public static int maxAreaSLOW(int[] height) {
         
     	/*
     	 * i = 1, h = 8 with i = 6, h = 8
