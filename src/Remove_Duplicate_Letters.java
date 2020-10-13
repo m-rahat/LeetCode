@@ -5,7 +5,7 @@ public class Remove_Duplicate_Letters {
 	public static void main(String[] args) {
 
 
-		removeDuplicateLetters("leetcode");
+		System.out.println(removeDuplicateLetters("leetcode"));
 
 	}// main
 
