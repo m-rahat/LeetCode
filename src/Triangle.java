@@ -10,6 +10,29 @@ public class Triangle {
 		List<Integer> list = new ArrayList<>();
 		list.add(2);
 		
+		List<Integer> list2 = new ArrayList<>();
+		list2.add(3);
+		list2.add(4);
+		
+		List<Integer> list3 = new ArrayList<>();
+		list3.add(6);
+		list3.add(5);
+		list3.add(7);
+		
+		List<Integer> list4 = new ArrayList<>();
+		list4.add(4);
+		list4.add(1);
+		list4.add(8);
+		list4.add(3);
+		
+		triangle.add(list);
+		triangle.add(list2);
+		triangle.add(list3);
+		triangle.add(list4);
+		
+		
+		System.out.println(minimumTotal(triangle));
+		
 	}// main
 
 	public static int minimumTotal(List<List<Integer>> triangle) {
@@ -32,28 +55,28 @@ public class Triangle {
 			int result1 = Integer.MAX_VALUE;
 			int result2 = Integer.MAX_VALUE;
 			int result3 = Integer.MAX_VALUE;
-
-			if (list.get(index1) != null) {
-				result1 = total += list.get(index1);
-			} // if
-
-			if (list.get(index2) != null) {
-				result2 = total += list.get(index2);
-			} // if
-
-			if (list.get(index3) != null) {
-				result3 = total += list.get(index3);
-			}
-
-			if (result1 > result2 && result1 > result3) {
+		
+			try {
+				result1 = total + list.get(index1);
+			}catch(Exception e) {}
+		
+			try {
+				result2 = total + list.get(index2);
+			}catch(Exception e) {}
+			
+			try {
+				result3 = total + list.get(index3);
+			}catch(Exception e) {}
+			
+			if (result1 < result2 && result1 < result3) {
 				total = result1;
 				index = index1;
 			} // if
-			if (result2 > result1 && result2 > result3) {
+			if (result2 < result1 && result2 < result3) {
 				total = result2;
 				index = index2;
 			} // if
-			if (result3 > result1 && result3 > result2) {
+			if (result3 < result1 && result3 < result2) {
 				total = result3;
 				index = index3;
 			} // if
