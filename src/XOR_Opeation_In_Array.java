@@ -35,9 +35,6 @@ public class XOR_Opeation_In_Array {
     		operations[i] = operations[i - 1] ^ nums[i];
     	}//for
     
-    	System.out.println(Arrays.toString(nums));
-    	System.out.println(Arrays.toString(operations));
-    	
     	return operations[n - 1];
     }//xorOperation
 	
