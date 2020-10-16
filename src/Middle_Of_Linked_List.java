@@ -18,17 +18,29 @@ public class Middle_Of_Linked_List {
 	 * output 4
 	 */
 	public ListNode middleNode(ListNode head) {
-	
+		
 		int size = 1;
+		
+		ListNode root = head;
 		
 		while(head.next != null) {
 			size++;
 			head = head.next;
 		}//while
 		
-		System.out.println(size);
+		//the if else statements are redundant and both the same but i'm too lazy to remove them.
+		if(size % 2 == 0) {
+			for (int i = 0; i < (size/2); i++) {
+				root = root.next;
+			}//for
+		}//if
+		else {
+			for(int i = 0; i < (size/2); i++) {
+				root = root.next;
+			}
+		}//else
 		
-		return head.next;
+		return root;
 	}// middleNode
 
 }// MiddleOFLinkedList
