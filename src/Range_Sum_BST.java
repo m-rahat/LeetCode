@@ -8,25 +8,29 @@ public class Range_Sum_BST {
 
 	public static int rangeSumBST(TreeNode root, int L, int R) {
 
-		Integer total = new Integer(0);
+		int total = 0;
+		List<Integer> list = new ArrayList<>();
+		total = rangeSumBST(root, L, R, total, list);
 		
-		rangeSumBST(root, L, R, total);
+		for (int i = 0; i < list.size(); i++) {
+			total += list.get(i);
+		}
 		
 		return total;
 	}//rangeSumBST
 	
-	public static int rangeSumBST(TreeNode root, int L, int R, int total) {
+	public static int rangeSumBST(TreeNode root, int L, int R, int total, List<Integer> list) {
 
 		if (root == null) return 0;
 		if (root.val >= L && root.val <= R) {
-			total += root.val;
-			System.out.println(root.val);
+			list.add(root.val);
+//			System.out.println(root.val);
 		}//if
 		
-		rangeSumBST(root.left, L, R, total);
-		rangeSumBST(root.right, L, R, total);
+		rangeSumBST(root.left, L, R, total, list);
+		rangeSumBST(root.right, L, R, total, list);
 		
-		return 1;
+		return total;
 	}//rangeSumBST
 
 	
