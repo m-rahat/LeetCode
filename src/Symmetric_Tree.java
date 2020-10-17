@@ -8,32 +8,18 @@ public class Symmetric_Tree {
 	
     public static boolean isSymmetric(TreeNode root) {
         
-    	List<Integer> listLeft = new ArrayList<>();
-    	List<Integer> listRight = new ArrayList<>();
-    	
-    	isSymmetric(root.left, listLeft);
-    	isSymmetric(root.right, listRight);
-    	
-    	System.out.println(listLeft.toString());
-    	System.out.println(listRight.toString());
-    	
-    	return true;
+    	return isSymmetric(root, root);
     }//isSymmetric
     
-    public static void isSymmetric(TreeNode node, List<Integer> list) {
+    public static boolean isSymmetric(TreeNode node1, TreeNode node2) {
     	
-    	if (node == null) return;
+    	if (node1 == null && node2 == null) return true;
+    	if (node1 == null || node2 == null) return false;
     	
-    	if (node.left != null) {
-    	list.add(node.left.val);
-    	}
+    	return (node1.val == node2.val)
+    			&& isSymmetric(node1.left, node2.right)
+    			&& isSymmetric(node1.right, node2.left);
     	
-    	if (node.right != null) {
-    	list.add(node.right.val);
-    	}
-    	
-    	isSymmetric(node.left, list);
-    	isSymmetric(node.right, list);
     	
     }//isSymmetricOverloaded
     
