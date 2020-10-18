@@ -25,6 +25,7 @@ public class Partition_Array_Into_Three_Parts_With_Equal_Sum {
     	
     	int index = 0;
     	int k = 0;
+    	//keep adding until sums[1] == total/3 then move to index i + 1 and do the same
     	for (int i = 0; i < A.length - 2; i++) {
     		sums[0] += A[i];
     		if (sums[0] == total/3) {
