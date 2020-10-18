@@ -25,10 +25,9 @@ public class Lowest_Common_Ancestor_Binary_Tree {
 		
 		if (left == true || right == true) {
 			ans = currentNode;
-			return true;
 		}
 		
-		return false;
+		return (left || right || mid);
 	}//recurseTree
 
 }// classname
