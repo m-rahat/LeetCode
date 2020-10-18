@@ -4,7 +4,7 @@ public class Partition_Array_Into_Three_Parts_With_Equal_Sum {
 
 	public static void main(String [] args) {
 		
-		int[] A = new int[] {0,2,1,-6,6,-7,9,1,2,0,1};
+		int[] A = new int[] {3,3,6,5,-2,2,5,1,-9,4};
 		
 		System.out.println(canThreePartsEqualSum(A));
 		
@@ -15,8 +15,7 @@ public class Partition_Array_Into_Three_Parts_With_Equal_Sum {
         
     	if (A.length < 3) return false;
     	
-    	int[] sums = new int[3];
-    	boolean[] array = new boolean[] {false, false, false};
+    	int[] sums = new int[A.length];
     	int total = 0;
     	
     	for (int i = 0; i < A.length; i++) {
@@ -26,17 +25,24 @@ public class Partition_Array_Into_Three_Parts_With_Equal_Sum {
     	int k = 0;
     	for (int i = 0; i < A.length; i++) {
     		
+    		System.out.println(Arrays.toString(sums));
+    		
     		if (sums[k] == total/3) k++;
     		
     		if (sums[k] + A[i] > total/3) {
-    			System.out.println(sums[k] + " here");
+//    			System.out.println(sums[k] + " here");
     			k++;
+    			sums[k] += A[i];
     		}//if
     		else {
     			sums[k] += A[i];
-    			System.out.println(sums[k] + " there");
+//    			System.out.println(sums[k] + " there");
     		}//else
     		
+    	}//for
+    	
+    	for (int i = 3; i < sums.length; i++) {
+    		sums[2] += sums[i];
     	}//for
     	
     	System.out.println(Arrays.toString(sums));
