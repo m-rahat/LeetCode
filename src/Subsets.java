@@ -9,21 +9,20 @@ public class Subsets {
 		System.out.println(subsets(nums));
 		
 	}//main
-	
-    public static List<List<Integer>> subsets(int[] nums) {
-        
-    	List<List<Integer>> returnList = new ArrayList<>();
-    	returnList.add(new ArrayList<>());
-    	
-    	for (int i = 0; i < nums.length; i++) {
-    		List<Integer> l = new ArrayList<>();
-    		l.add(nums[i]);
-    		returnList.add(l);
-    	}//for
-    	
-    	System.out.println(returnList);
-    	
-    	return returnList;
-    }//subsets
+	  public List<List<Integer>> subsets(int[] nums) {
+		    List<List<Integer>> output = new ArrayList();
+		    output.add(new ArrayList<Integer>());
+
+		    for (int num : nums) {
+		      List<List<Integer>> newSubsets = new ArrayList();
+		      for (List<Integer> curr : output) {
+		        newSubsets.add(new ArrayList<Integer>(curr){{add(num);}});
+		      }
+		      for (List<Integer> curr : newSubsets) {
+		        output.add(curr);
+		      }
+		    }
+		    return output;
+		  }
 	
 }//SubSets
