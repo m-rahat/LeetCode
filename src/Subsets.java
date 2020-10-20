@@ -9,7 +9,7 @@ public class Subsets {
 		System.out.println(subsets(nums));
 		
 	}//main
-	  public List<List<Integer>> subsets(int[] nums) {
+	  public static List<List<Integer>> subsets(int[] nums) {
 		    List<List<Integer>> output = new ArrayList();
 		    output.add(new ArrayList<Integer>());
 
