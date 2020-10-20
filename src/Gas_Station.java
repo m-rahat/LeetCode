@@ -4,6 +4,13 @@ public class Gas_Station {
 
 	public static void main(String [] args) {
 		
+		int [] a = new int[] {1, 2, 3, 4, 5};
+		
+		int start = 2;
+		for (int i = 0; i < a.length; i++) {
+		    System.out.println(a[(start - i + a.length) % a.length]);
+		}
+		
 	}//main
 
 	/*
@@ -47,16 +54,23 @@ public class Gas_Station {
     	
     	for (int i = 0; i < gas.length; i++) {
     		
-    		int thisStation = gas[i];
-    		int costToGo = cost[i];
+    		int startStation = i;
     		
-    		//if what's left in tank + gas from this station will allow us to go, then go
-    		if (tank + thisStation > costToGO) {
+    		for (int j = i; j < gas.length; j++) {
     			
-    		}//if
-    		else {
+    	   		int thisStation = gas[i];
+        		int costToGo = cost[i];
+        		
+        		//if what's left in tank + gas from this station will allow us to go, then go
+        		if (tank + thisStation >= costToGo) {
+        			tank = tank + thisStation - costToGo;
+        		}//if
+        		else {
+        			//start from some other station
+        			break;
+        		}// don't go
     			
-    		}// don't go
+    		}//for 
     		
     	}//for
     	
