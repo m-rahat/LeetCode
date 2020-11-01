@@ -5,6 +5,7 @@ public class Buddy_Strings {
 	public static void main(String[] args) {
 
 		System.out.println(buddyStrings("abcd", "badc"));
+		System.out.println();
 		
 	}// main
 	
