@@ -7,6 +7,7 @@ public class Anagram {
 		
 		String s = "anagram";
 		String t = "nagaram";
+		String p = "tatagram";
 		
 		isAnagram(s,t);
 		
