@@ -14,7 +14,7 @@ interface Apple{
 public class Test implements Apple{
 
 	public static void main(String [] args) {
-		Apple a = new Apple();
+	
 	}
 	
 }
