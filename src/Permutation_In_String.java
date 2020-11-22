@@ -3,50 +3,22 @@ import java.util.*;
 public class Permutation_In_String {
 
 	public static boolean checkInclusion(String s1, String s2) {
-
-		if (s2.length() < s1.length())
-			return false;
-
-		if (s2.contains(s1))
-			return true;
-
-		Map<Character, Integer> map = new HashMap<>();
+		
 		for (int i = 0; i < s1.length(); i++) {
-			if (map.containsKey(s1.charAt(i))) {
-				int n = map.get(s1.charAt(i));
-				n = n + 1;
-				map.put(s1.charAt(i), n);
-			} // if
-			else {
-				map.put(s1.charAt(i), 1);
-			}
-		} // for
+			
+		}
+		
+		return true;
+		
+	}// checkInclusion
 
-		Map<Character, Integer> tempMap = map;
-		int count = 0;
-		for (int i = 0; i < s2.length(); i++) {
-			if (tempMap.containsKey(s2.charAt(i))) {
-//				System.out.println(s2.charAt(i));
-				int n = tempMap.get(s2.charAt(i));
-				n = n - 1;
-				tempMap.put(s2.charAt(i), n);
-				for (Map.Entry<Character, Integer> entry : tempMap.entrySet()) {
-					if (entry.getValue() > 0) {
-						count++;
-					} // if
-				} // for
-				if (count > 0) {
-					continue;
-				} else
-					count = 0;
-			} // if
-			else {
-				tempMap = map;
-			}
-		} // for
-
-		return false;
-
+	public static String swap(String s, int i0, int i1) {
+		if (i0 == i1)
+			return s;
+		String s1 = s.substring(0, i0);
+		String s2 = s.substring(i0 + 1, i1);
+		String s3 = s.substring(i1 + 1);
+		return s1 + s.charAt(i1) + s2 + s.charAt(i0) + s3;
 	}
 
 	public static boolean checkInclusionV1(String s1, String s2) {
