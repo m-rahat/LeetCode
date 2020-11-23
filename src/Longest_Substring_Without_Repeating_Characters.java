@@ -24,7 +24,7 @@ public class Longest_Substring_Without_Repeating_Characters {
 			if (!set.contains(s.charAt(j))) {
 				//add the next character to the set
 				set.add(s.charAt(j++));
-				//answer will be the max 
+				//answer will be the max length of substring? idk
 				ans = Math.max(ans, j-1);
 			}//if
 			else {
