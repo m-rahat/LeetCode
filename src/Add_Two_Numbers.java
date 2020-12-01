@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.*;
 
 public class Add_Two_Numbers {
@@ -25,15 +26,19 @@ public class Add_Two_Numbers {
 //    	int n1 = Integer.parseInt(num1.toString());
 //    	int n2 = Integer.parseInt(num2.toString());
     
-    	Long lng1 = Long.parseLong(num1.toString());
-    	Long lng2 = Long.parseLong(num2.toString());
+//    	Long lng1 = Long.parseLong(num1.toString());
+//    	Long lng2 = Long.parseLong(num2.toString());
     	
+    	BigInteger big1 = new BigInteger(num1.toString());
+    	BigInteger big2 = new BigInteger(num2.toString());
     	
 //    	int ans = n1 + n2;
-    	Long ans = lng1 + lng2;
+//    	Long ans = lng1 + lng2;
+    	BigInteger ans = big1.add(big2);
     	
 //    	String ansString = Integer.toString(ans);
-    	String ansString = Long.toString(ans);
+//    	String ansString = Long.toString(ans);
+    	String ansString = ans.toString();
     	
     	StringBuffer str = new StringBuffer(ansString);
     	str = str.reverse();
