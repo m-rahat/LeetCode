@@ -37,7 +37,7 @@ public class Match_String extends Thread {
 	}// factorial
 
 	public void run() {
-
+		//generate thread
 	}// run
 
 	public static void main(String[] args) {
