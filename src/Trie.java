@@ -18,19 +18,41 @@ public class Trie {
 		}
 		curr.isWord = true;
 	}
-	
+
 	public boolean hasWord(String word) {
 		TrieNode node = this.getNode(word);
-		if (node == null) return false;
-		if (node.isWord == true) return true;
-		else return false;
+		if (node == null)
+			return false;
+		if (node.isWord == true)
+			return true;
+		else
+			return false;
 	}
-	
+
+	public boolean search(String word) {
+		TrieNode node = this.getNode(word);
+		if (node == null)
+			return false;
+		if (node.isWord == true)
+			return true;
+		else
+			return false;
+	}
+
+	public boolean startsWith(String prefix) {
+		TrieNode node = this.getNode(prefix);
+		if (node == null)
+			return false;
+		else
+			return true;
+	}
+
 	public TrieNode getNode(String word) {
 		TrieNode curr = root;
 		for (int i = 0; i < word.length(); i++) {
 			char c = word.charAt(i);
-			if (curr.children[c - 'a'] == null) return null;
+			if (curr.children[c - 'a'] == null)
+				return null;
 			curr = curr.children[c - 'a'];
 		}
 		return curr;
@@ -41,9 +63,9 @@ public class Trie {
 		trie.insert("apple");
 		trie.insert("applepie");
 		trie.insert("amazon");
-		
+
 		System.out.println(trie.hasWord("amazon"));
-		
+
 	}
 
 }// Trie
