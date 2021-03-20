@@ -16,7 +16,7 @@ public class Rotate_List {
     	}
     	
     	if (size == 1) return head;
-    	if (size == k) return head;Ï
+    	if (size == k) return head;
     	//connect the end of the node to the head of the node
     	curr.next = head;
     	
