@@ -65,6 +65,7 @@ public class Trie {
 		trie.insert("amazon");
 
 		System.out.println(trie.hasWord("amazon"));
+		System.out.println('b' - 'a');
 
 	}
 
@@ -84,4 +85,5 @@ class TrieNode {
 	public String toString() {
 		return Character.toString(c);
 	}
+	
 }
